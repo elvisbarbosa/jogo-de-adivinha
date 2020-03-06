@@ -3,12 +3,12 @@
    
     
     puts "Digite um texto: "
-    texto = gets
+    texto = gets.chomp
     puts "\n\n\n\n"
     puts "Seu texto eh: " + texto
     puts "\n\n "
     puts "Digite a palavra a ser ocultada do texto: "
-    texto2 = gets
+    texto2 = gets.chomp
     puts "\n\n "
 
     texto.lines do |line|
@@ -17,7 +17,10 @@
         puts "\n\n "
     end
 
-    texto.lines do |line|
-        line.gsub! texto2, '"..."' # substitui ’palavra oculta ’ with ’"..." ’
-        puts "Texto de saida palavra ocultada: #{line.strip}"
-    end
+    
+    texto.gsub!(/#{texto2}/, '"..."') # substitui ’palavra oculta ’ with ’"..." ’
+    puts "Texto de saida palavra ocultada: #{texto}"
+    
+
+
+    #'mislocated cat, vindicating'.gsub('cat', 'dog')
